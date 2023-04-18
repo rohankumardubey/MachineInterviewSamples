@@ -1,0 +1,31 @@
+Program for array rotation
+Reversal algorithm for array rotation
+Block swap algorithm for array rotation--------------------------pending
+Program to cyclically rotate an array by one
+Search an element in a sorted and rotated array
+Given a sorted and rotated array, find if there is a pair with a given sum
+Find maximum value of Sum( i*arr[i]) with only rotations on given array allowed
+Maximum sum of i*arr[i] among all rotations of a given array-----pending
+Find the Rotation Count in Rotated Sorted array
+Quickly find multiple left rotations of an array
+Find the minimum element in a sorted and rotated array
+Reversal algorithm for right rotation of an array
+Find a rotation with maximum hamming distance--------------------pending
+Queries on Left and Right Circular shift on array----------------pending
+Print left rotation of array in O(n) time and O(1) space
+Find element at given index after a number of rotations----------pending
+Split the array and add the first part to the end
+Count rotations of N which are Odd and Even
+Generate all rotations of a number
+Generating Lyndon words of length n------------------------------Pending
+Check whether all the rotations of a given number is greater than or equal to the given number or not
+Rotate the sub-list of a linked list from position M to N to the right by K places ----linkedlist
+Check if it is possible to sort the array after rotating it
+Maximum contiguous 1 possible in a binary string after k rotations--Pending
+Generating numbers that are divisor of their right-rotations--------Pending
+Check if an array is sorted and rotated clockwise
+Rotate a matrix by 90 degree in clockwise direction without using any extra space
+Elements that occurred only once in the array
+Check if strings are rotations of each other or not | Set 2 ----in string
+Rotate Doubly linked list by N nodes----------------------LinkedList
+Count rotations divisible by 8
