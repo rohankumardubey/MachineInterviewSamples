@@ -1,2 +1,2 @@
 # MachineInterviewSamples
- Maching coding round sample snippets
+ Machine coding round sample snippets

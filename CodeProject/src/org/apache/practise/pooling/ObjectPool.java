@@ -1,5 +1,8 @@
 package org.apache.practise.pooling;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 import java.util.Set;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.ConcurrentHashMap;
@@ -18,17 +21,23 @@ public class ObjectPool {
   private ScheduledExecutorService timeoutSchedulerThreadPool;
   private Set<Object> referencePool;
 
+  private ArrayList<String> referenceName;
+
   public ObjectPool(int minPoolSize, int maxPoolSize, long maxTimeout) {
     this.minPoolSize = minPoolSize;
     this.maxPoolSize = maxPoolSize;
     this.pool = new PriorityBlockingQueue<>();
     this.currentPoolSize = new AtomicInteger();
     this.referencePool = ConcurrentHashMap.newKeySet();
+    this.referenceName = new ArrayList<>();
+
     for (int i = 0; i < minPoolSize; i++) {
       final Object o = new Object();
-      this.pool.offer(new PoolObject(o, System.currentTimeMillis()));
+      String name = "name"+ new Random().nextInt();
+      this.pool.offer(new PoolObject(name,o, System.currentTimeMillis()));
       referencePool.add(o);
       currentPoolSize.getAndIncrement();
+      this.referenceName.add(name);
     }
     timeoutSchedulerThreadPool = Executors.newScheduledThreadPool(1);
     timeoutSchedulerThreadPool
@@ -43,16 +52,21 @@ public class ObjectPool {
     PoolObject obj = null;
     while (obj == null) {
       obj = pool.poll(5, TimeUnit.MILLISECONDS);
+//      System.out.println(obj+"time stamp is :"+obj.timestamp);
     }
     referencePool.remove(obj.obj);
     return obj.obj;
   }
 
-  public void releaseObject(Object obj) {
+  public ArrayList<String> getObjectPoolNames(){
+    return this.referenceName;
+  }
+
+  public void releaseObject(String name,Object obj) {
     if (null != obj && !referencePool.contains(obj)) {
       // add check for same object
       referencePool.add(obj);
-      pool.offer(new PoolObject(obj, System.currentTimeMillis()));
+      pool.offer(new PoolObject("name"+ new Random().nextInt(),obj, System.currentTimeMillis()));
     }
   }
 
@@ -98,10 +112,13 @@ public class ObjectPool {
   }
 
   private class PoolObject implements Comparable<PoolObject> {
+
+    private String name;
     private Object obj;
     private long timestamp;
 
-    private PoolObject(Object obj, long timestamp) {
+    private PoolObject(String name,Object obj, long timestamp) {
+      this.name=name;
       this.obj = obj;
       this.timestamp = timestamp;
     }
@@ -115,6 +132,10 @@ public class ObjectPool {
         return -1;
       }
       return 0;
+    }
+
+    public String getPoolObjectName(){
+      return this.name;
     }
   }
 }

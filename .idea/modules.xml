@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Array/Array.iml" filepath="$PROJECT_DIR$/Array/Array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Caching/Caching.iml" filepath="$PROJECT_DIR$/Caching/Caching.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CodeProject/CodeProject.iml" filepath="$PROJECT_DIR$/CodeProject/CodeProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CodeSnippets.iml" filepath="$PROJECT_DIR$/.idea/CodeSnippets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LogService/LogService.iml" filepath="$PROJECT_DIR$/LogService/LogService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MachineCoding/MachineCoding.iml" filepath="$PROJECT_DIR$/MachineCoding/MachineCoding.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ParkingLot/ParkingLot.iml" filepath="$PROJECT_DIR$/ParkingLot/ParkingLot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SchedulerPool/SchedulerPool.iml" filepath="$PROJECT_DIR$/SchedulerPool/SchedulerPool.iml" />
+      <module fileurl="file://$PROJECT_DIR$/flipkart/flipkart.iml" filepath="$PROJECT_DIR$/flipkart/flipkart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/practise/practise.iml" filepath="$PROJECT_DIR$/practise/practise.iml" />
+    </modules>
+  </component>
+</project>
