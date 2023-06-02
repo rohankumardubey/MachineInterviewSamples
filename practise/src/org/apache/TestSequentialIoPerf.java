@@ -11,8 +11,8 @@ import static java.nio.channels.FileChannel.MapMode.READ_ONLY;
 import static java.nio.channels.FileChannel.MapMode.READ_WRITE;
 
 public final class TestSequentialIoPerf {
-    public static final int PAGE_SIZE = 1024 * 4;
-    public static final long FILE_SIZE = PAGE_SIZE * 2000L * 1000L;
+    public static final int PAGE_SIZE = 4;
+    public static final long FILE_SIZE = PAGE_SIZE * 20L * 10L;
     public static final String FILE_NAME = "test.dat";
     public static final byte[] BLANK_PAGE = new byte[PAGE_SIZE];
 
@@ -20,7 +20,7 @@ public final class TestSequentialIoPerf {
         preallocateTestFile(FILE_NAME);
 
         for (final PerfTestCase testCase : testCases) {
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < 1; i++) {
                 System.gc();
                 long writeDurationMs = testCase.test(PerfTestCase.Type.WRITE,
                         FILE_NAME);
@@ -32,9 +32,10 @@ public final class TestSequentialIoPerf {
                 long bytesReadPerSec = (FILE_SIZE * 1000L) / readDurationMs;
                 long bytesWrittenPerSec = (FILE_SIZE * 1000L) / writeDurationMs;
 
-                out.format("%s\twrite=%,d\tread=%,d bytes/sec\n",
+                out.format("%s\twrite=%,d bytes/sec\tread=%,d bytes/sec\n",
                         testCase.getName(),
                         bytesWrittenPerSec, bytesReadPerSec);
+                out.println();
             }
         }
 
